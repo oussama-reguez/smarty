@@ -17,12 +17,14 @@ class ResourcesProvider(private val context: Context) {
     fun getString(id: Int): String {
         return context.getString(id)
     }
+
+
     /**
      * a method that returns a string from a given resource name
      * @param resourceName resource name
      */
-    fun getString(resourceName: String): String {
-        return getString(context.resources.getIdentifier(resourceName, "string", context.packageName))
+    fun getDrawableIdentifier(resourceName: String): Int {
+        return context.resources.getIdentifier(resourceName, "drawable", context.packageName)
         throw Resources.NotFoundException()
     }
 

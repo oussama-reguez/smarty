@@ -13,10 +13,17 @@ import org.kodein.di.generic.singleton
 val repositoriesModule = Kodein.Module("repositoriesModule") {
 
     /**
-     * Starts the binding of a UserRepository
+     * Starts the binding of a RoomRepository
      */
     bind<RoomRepository>() with singleton {
         RoomRepository(instance())
+    }
+
+    /**
+     * Starts the binding of a UserRepository
+     */
+    bind<UserRepository>() with singleton {
+        UserRepository(instance())
     }
 
 }

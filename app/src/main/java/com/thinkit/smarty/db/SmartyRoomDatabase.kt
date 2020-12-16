@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.thinkit.smarty.db.dao.RoomDao
+import com.thinkit.smarty.db.dao.UserDao
 import com.thinkit.smarty.entities.Device
 import com.thinkit.smarty.entities.Room
 import com.thinkit.smarty.entities.User
@@ -16,17 +17,9 @@ import com.thinkit.smarty.entities.User
 abstract class SmartyRoomDatabase: RoomDatabase() {
 
     abstract fun roomDao(): RoomDao
+    abstract fun userDao(): UserDao
 
-    var rdc: Callback = object : Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            // do something after database has been created
-            roomDao()
-        }
 
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            // do something every time database is open
-        }
-    }
 
     override fun clearAllTables() {
 

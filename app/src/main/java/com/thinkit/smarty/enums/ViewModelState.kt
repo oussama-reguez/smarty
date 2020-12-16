@@ -8,10 +8,6 @@ enum class ViewModelState {
      */
     IDLE,
     /**
-     * loading state
-     */
-    LOADING,
-    /**
      * success state
      */
     SUCCESS,

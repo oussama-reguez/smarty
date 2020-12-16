@@ -5,10 +5,8 @@ import androidx.lifecycle.asFlow
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.thinkit.smarty.di.*
-import com.thinkit.smarty.enums.Navigation
 import com.thinkit.smarty.repositories.RoomRepository
 import com.thinkit.smarty.viewmodels.HomeViewModel
-import com.thinkit.smarty.viewmodels.MainViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

@@ -14,7 +14,7 @@ import com.thinkit.smarty.BuildConfig
  * @param context - callers context to retrieve SharedPreferences
  */
 class SharedPreferencesProvider(private val context: Context) {
-    private val sharedPrefName = "qutenza_pref"
+
     private val preference: SharedPreferences
         get() = getSharedPref()
 
@@ -22,7 +22,7 @@ class SharedPreferencesProvider(private val context: Context) {
      *  or regular SharedPreferences if android version below Android 6.0 or in debug
      */
     private fun getSharedPref(): SharedPreferences {
-        var sharedPref = context.getSharedPreferences(sharedPrefName, Context.MODE_PRIVATE)
+        var sharedPref = context.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
         if (!BuildConfig.DEBUG) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 sharedPref = getEncryptedPrefs()
@@ -40,7 +40,7 @@ class SharedPreferencesProvider(private val context: Context) {
                 .build()
         return EncryptedSharedPreferences.create(
                 context,
-                sharedPrefName,
+                SHARED_PREFERENCE_NAME,
                 masterKey,
                 EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV, // prefKeyEncryptionScheme
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM // prefValueEncryptionScheme
@@ -107,14 +107,13 @@ class SharedPreferencesProvider(private val context: Context) {
      * @param key The name of the preference to retrieve.
      * @param defaultValue Value to return if this preference does not exist.
      */
-    fun getBool(key: String, defaultValue: Boolean): Boolean? {
+    fun getBool(key: String, defaultValue: Boolean): Boolean {
         return preference.getBoolean(key, defaultValue)
     }
 
     companion object {
-         const val NAME_KEY="name"
-
-
+         const val USER_LOGGED_IN="USER_LOGGED_IN"
+         const val SHARED_PREFERENCE_NAME = "SHARED_PREFERENCE_NAME"
 
     }
 

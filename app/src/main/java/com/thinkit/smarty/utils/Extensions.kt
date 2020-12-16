@@ -10,6 +10,7 @@ import org.kodein.di.direct
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 
+
 /**
  * extension function to get view model within a FragmentActivity
  */

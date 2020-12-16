@@ -3,6 +3,8 @@ package com.thinkit.smarty.di
 import androidx.lifecycle.ViewModelProvider
 import com.thinkit.smarty.utils.bindViewModel
 import com.thinkit.smarty.viewmodels.HomeViewModel
+import com.thinkit.smarty.viewmodels.MainActivityViewModel
+import com.thinkit.smarty.viewmodels.MainViewModel
 
 import org.kodein.di.Kodein
 import org.kodein.di.direct
@@ -25,10 +27,25 @@ val viewModelModule = Kodein.Module(name = "viewModelModule") {
     }
 
     /**
-     * Starts the binding of a MainActivityViewModel
+     * Starts the binding of a HomeViewModel
      */
     bindViewModel<HomeViewModel>() with provider {
-        HomeViewModel(instance())
+        HomeViewModel(instance(),instance(),instance())
+    }
+
+    /**
+     * Starts the binding of a MainViewModel
+     */
+    bindViewModel<MainViewModel>() with provider {
+        MainViewModel(instance(),instance(),instance())
+    }
+
+
+    /**
+     * Starts the binding of a MainActivityViewModel
+     */
+    bindViewModel<MainActivityViewModel>() with provider {
+        MainActivityViewModel(instance())
     }
 
 }

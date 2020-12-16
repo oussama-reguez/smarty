@@ -7,7 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.thinkit.smarty.di.ResourcesProvider
 import com.thinkit.smarty.di.SharedPreferencesProvider
 import com.thinkit.smarty.enums.Navigation
-import com.thinkit.smarty.viewmodels.MainViewModel
+import com.thinkit.smarty.viewmodels.MainActivityViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
@@ -28,11 +28,11 @@ import org.kodein.di.generic.singleton
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class MainViewModelTest {
+class MainActivityViewModelTest {
     private val instrumentationContext = InstrumentationRegistry.getInstrumentation().targetContext
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-    lateinit var  viewModel: MainViewModel
+    lateinit var  activityViewModel: MainActivityViewModel
     lateinit var kodein: Kodein
     lateinit var sharedPreferencesProvider:SharedPreferencesProvider
 
@@ -52,7 +52,7 @@ class MainViewModelTest {
         val resourcesProvider:ResourcesProvider by kodein.instance()
         val sharedPreferencesProvider:SharedPreferencesProvider by kodein.instance()
         this.sharedPreferencesProvider=sharedPreferencesProvider
-        viewModel= MainViewModel(resourcesProvider=resourcesProvider,sharedPreferencesProvider = sharedPreferencesProvider )
+        activityViewModel= MainActivityViewModel(resourcesProvider=resourcesProvider,sharedPreferencesProvider = sharedPreferencesProvider )
 
 
 
@@ -64,7 +64,7 @@ class MainViewModelTest {
     fun navigateToMainTest() =
         runBlocking {
             sharedPreferencesProvider.insertString(SharedPreferencesProvider.NAME_KEY, "")
-            assertEquals(Navigation.MAIN, viewModel.navigation.asFlow().first())
+            assertEquals(Navigation.MAIN, activityViewModel.navigation.asFlow().first())
 
         }
 
@@ -72,7 +72,7 @@ class MainViewModelTest {
     fun navigateToHomeTest() =
         runBlocking {
             sharedPreferencesProvider.insertString(SharedPreferencesProvider.NAME_KEY, "oussama")
-            assertEquals(Navigation.HOME, viewModel.navigation.asFlow().first())
+            assertEquals(Navigation.HOME, activityViewModel.navigation.asFlow().first())
         }
 
 }

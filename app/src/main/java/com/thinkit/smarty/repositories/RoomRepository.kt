@@ -6,7 +6,7 @@ import com.thinkit.smarty.entities.RoomWithDevices
 
 class RoomRepository(private val roomDao: RoomDao) {
 
-fun getAllRooms():LiveData<List<RoomWithDevices>>{
+fun getAllRooms():List<RoomWithDevices>{
        return  roomDao.getAll()
    }
 

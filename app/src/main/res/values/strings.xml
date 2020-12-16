@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Smarty</string>
     <string name="name_empty">Name must not be empty</string>
+    <string name="welcome">Welcome</string>
+    <string name="device">Device</string>
+    <string name="devices">Devices</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
