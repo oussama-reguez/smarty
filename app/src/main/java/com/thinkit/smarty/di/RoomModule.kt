@@ -14,8 +14,11 @@ import org.kodein.di.generic.singleton
 
 val roomModule = Kodein.Module("roomModule") {
     bind<SmartyRoomDatabase>() with eagerSingleton {
-        Room.databaseBuilder(instance(), SmartyRoomDatabase::class.java, SmartyRoomDatabase.DB_FILE_NAME)
-            .build() }
+        Room.databaseBuilder(instance(), SmartyRoomDatabase::class.java, SmartyRoomDatabase.DB_FILE_NAME).allowMainThreadQueries()
+            .createFromAsset("database/smarty.db")
+            .build()
+
+    }
 
 
     bind<RoomDao>() with  singleton { (instance() as SmartyRoomDatabase).roomDao()  }

@@ -1,7 +1,10 @@
 package com.thinkit.smarty
 
 import android.app.Application
+import com.thinkit.smarty.db.dao.RoomDao
 import com.thinkit.smarty.di.*
+import com.thinkit.smarty.entities.Device
+import com.thinkit.smarty.entities.Room
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -21,4 +24,7 @@ class SmartyApplication : Application(), KodeinAware  {
         import(repositoriesModule)
         import(roomModule)
     }
+
+
+
 }
