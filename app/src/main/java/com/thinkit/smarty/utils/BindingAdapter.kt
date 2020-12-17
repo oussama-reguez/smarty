@@ -9,7 +9,7 @@ import com.thinkit.smarty.R
 /**
  * added a new attribute "app:numberOfDevices" to textView to correctly format number of devices
  */
-@BindingAdapter("app:numberOfDevices")
+@BindingAdapter("numberOfDevices")
 fun numberOfDevices(textView: TextView, deviceNumbers: Int) {
     val textDeviceNumber =
         if (deviceNumbers == 1) textView.context.getString(R.string.device) else textView.context.getString(

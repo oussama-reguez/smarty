@@ -74,6 +74,7 @@ class MainFragment : Fragment(), KodeinAware {
             }
 
 
+            else -> {}
         }
 
     }
