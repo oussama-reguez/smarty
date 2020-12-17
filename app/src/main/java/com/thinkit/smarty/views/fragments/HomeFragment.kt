@@ -70,6 +70,19 @@ class HomeFragment : Fragment(), KodeinAware {
         roomsListAdapter = RoomsListAdapter(roomsWithDevices = emptyList())
         dataBinding.recyclerRooms.apply {
             layoutManager = LinearLayoutManager(activity)
+            /* in case we want to show only 4 items in recycler view
+
+                  layoutManager = object :LinearLayoutManager(activity) {
+                 override fun checkLayoutParams(lp: RecyclerView.LayoutParams?): Boolean {
+                     if (lp != null) {
+                         lp.height = height / 4
+                     };
+                     return true
+                 }
+             }
+              I didn't opt for this solution because i tried to take advantage of the screen height and show more items
+
+             */
             adapter = roomsListAdapter
         }
     }
