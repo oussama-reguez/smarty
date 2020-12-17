@@ -7,7 +7,7 @@ import org.kodein.di.generic.instanceOrNull
 
 /**
  * ViewModel provider factory which will be responsible for ViewModels retrieval
- * @param injector a direct [DKodein] instance
+ * @param injector a direct [Kodein] instance
  */
 class ViewModelFactory(private val injector: DKodein) : ViewModelProvider.Factory {
 

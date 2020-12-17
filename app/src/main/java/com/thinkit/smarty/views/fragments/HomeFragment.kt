@@ -1,21 +1,15 @@
 package com.thinkit.smarty.views.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.commit
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.thinkit.smarty.R
 import com.thinkit.smarty.adapters.RoomsListAdapter
 import com.thinkit.smarty.databinding.FragmentHomeBinding
-import com.thinkit.smarty.databinding.FragmentMainBinding
-import com.thinkit.smarty.enums.ViewModelState
 import com.thinkit.smarty.utils.viewModel
 import com.thinkit.smarty.viewmodels.HomeViewModel
 import com.thinkit.smarty.viewmodels.MainViewModel
@@ -37,7 +31,7 @@ class HomeFragment : Fragment() , KodeinAware {
     private val viewModel: HomeViewModel by viewModel()
 
     /**
-     * generated data binding for view fragment_login.xml
+     * generated data binding for view fragment_home.xml
      */
     private lateinit var dataBinding: FragmentHomeBinding
     lateinit var roomsListAdapter:RoomsListAdapter

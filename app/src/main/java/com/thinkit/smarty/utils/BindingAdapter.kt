@@ -1,22 +1,9 @@
 package com.thinkit.smarty.utils
 
-import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.Typeface
-import android.util.TypedValue
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.databinding.BindingMethod
-import androidx.databinding.BindingMethods
-
 import com.thinkit.smarty.R
-import java.text.SimpleDateFormat
-import java.util.*
-
-
 
 
 /**
@@ -33,8 +20,7 @@ fun numberOfDevices(textView: TextView, deviceNumbers:Int) {
 
 
 /**
- * added "url" attribute to Set an image to the imageView from a given url
- * added "bitmap" attribute to Set an image to the imageView from a given bitmap
+ * added "imageName" attribute to Set an image by resource name
  */
 @BindingAdapter(value = ["imageName"], requireAll = false)
 fun ImageView.setImageFromDb(imageName: String?) {

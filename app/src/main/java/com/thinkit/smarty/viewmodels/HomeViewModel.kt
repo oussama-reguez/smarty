@@ -6,7 +6,6 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.thinkit.smarty.R
 import com.thinkit.smarty.di.ResourcesProvider
-import com.thinkit.smarty.di.SharedPreferencesProvider
 import com.thinkit.smarty.repositories.RoomRepository
 import com.thinkit.smarty.repositories.UserRepository
 import kotlinx.coroutines.Dispatchers
@@ -30,10 +29,11 @@ class HomeViewModel(private val roomRepository: RoomRepository,
             welcomeMessage.set( "${resourcesProvider.getString(R.string.welcome)}, $name!")
         }
 
-        currentFormattedDate= SimpleDateFormat(DATE_PATTERN).format(Date())
+        currentFormattedDate = SimpleDateFormat(DATE_PATTERN).format(Date()).toUpperCase()
     }
 
 
 }
 
-const val DATE_PATTERN="dd MMM yyyy"
+//tools:text="JULY 17 , 2020"
+const val DATE_PATTERN = "MMMM dd, yyyy"

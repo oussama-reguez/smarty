@@ -2,21 +2,18 @@ package com.thinkit.smarty
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.asFlow
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.thinkit.smarty.di.ResourcesProvider
+import androidx.test.platform.app.InstrumentationRegistry
 import com.thinkit.smarty.di.SharedPreferencesProvider
 import com.thinkit.smarty.enums.Navigation
 import com.thinkit.smarty.viewmodels.MainActivityViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-
-import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
@@ -41,20 +38,18 @@ class MainActivityViewModelTest {
 
 
     @Before
-    fun setup(){
+    fun setup() {
 
-        kodein= Kodein.lazy{
+        kodein = Kodein.lazy {
             bind() from singleton { instrumentationContext }
             bind() from singleton { SharedPreferencesProvider(instance()) }
-            bind() from singleton { ResourcesProvider(instance()) }
+
         }
 
-        val resourcesProvider:ResourcesProvider by kodein.instance()
-        val sharedPreferencesProvider:SharedPreferencesProvider by kodein.instance()
-        this.sharedPreferencesProvider=sharedPreferencesProvider
-        activityViewModel= MainActivityViewModel(resourcesProvider=resourcesProvider,sharedPreferencesProvider = sharedPreferencesProvider )
 
-
+        val sharedPreferencesProvider: SharedPreferencesProvider by kodein.instance()
+        this.sharedPreferencesProvider = sharedPreferencesProvider
+        activityViewModel = MainActivityViewModel(sharedPreferencesProvider = sharedPreferencesProvider)
 
 
     }
@@ -63,7 +58,7 @@ class MainActivityViewModelTest {
     @Test
     fun navigateToMainTest() =
         runBlocking {
-            sharedPreferencesProvider.insertString(SharedPreferencesProvider.NAME_KEY, "")
+            sharedPreferencesProvider.insertBoolean(SharedPreferencesProvider.USER_LOGGED_IN, false)
             assertEquals(Navigation.MAIN, activityViewModel.navigation.asFlow().first())
 
         }
@@ -71,7 +66,7 @@ class MainActivityViewModelTest {
     @Test
     fun navigateToHomeTest() =
         runBlocking {
-            sharedPreferencesProvider.insertString(SharedPreferencesProvider.NAME_KEY, "oussama")
+            sharedPreferencesProvider.insertBoolean(SharedPreferencesProvider.USER_LOGGED_IN, true)
             assertEquals(Navigation.HOME, activityViewModel.navigation.asFlow().first())
         }
 
