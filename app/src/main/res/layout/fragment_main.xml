@@ -28,8 +28,6 @@
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-
-
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
@@ -48,16 +46,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toTopOf="@+id/guideline">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:includeFontPadding="false"
-                android:text="Smarty"
+                android:text="@string/app_name"
                 android:textColor="@color/bunker"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Welcome Home"
+                android:text="@string/welcome_home"
                 android:textColor="@color/oslo_gray"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/editTextName"
@@ -86,13 +82,11 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/shape_background_black_border"
                 android:gravity="center"
-
-                android:hint="Your Name"
+                android:hint="@string/your_name"
                 android:inputType="textPersonName"
                 android:padding="5dp"
                 android:text="@={viewModel.name}"
                 android:textAlignment="center"
-
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/button_continue"
@@ -106,15 +100,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-
                 android:onClick="@{() -> viewModel.validateName()}"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:text="Continue"
-
+                android:text="@string/continue_text"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-
                 app:layout_constraintEnd_toEndOf="@+id/editTextName"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/editTextName"
@@ -123,5 +114,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,8 +5,6 @@
 
     <data>
 
-
-
         <variable
             name="roomWithDevices"
             type="com.thinkit.smarty.entities.RoomWithDevices" />
@@ -16,7 +14,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         tools:context=".views.fragments.ActivationTokenFragment">
 
         <FrameLayout
@@ -25,7 +22,6 @@
             android:layout_height="115dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-
             android:background="@drawable/shadow_2353"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,24 +31,19 @@
             <androidx.cardview.widget.CardView
 
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent"
-
-                app:cardCornerRadius="8dp"
-
-                >
+                app:cardCornerRadius="8dp">
 
                 <ImageView
                     imageName="@{roomWithDevices.room.imageName}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bathroom"></ImageView>
+                    android:src="@drawable/bathroom"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -9,49 +9,48 @@
             name="viewModel"
             type="com.thinkit.smarty.viewmodels.HomeViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:background="@color/gin"
-    android:layout_height="match_parent"
-    tools:context=".views.activities.MainActivity">
 
-    <TextView
-        android:id="@+id/text_today"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/oslo_gray"
-        android:textSize="11sp"
-        tools:text="JULY 17 , 2020"
-        android:text="@{viewModel.currentFormattedDate}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gin"
+        tools:context=".views.activities.MainActivity">
 
-    <TextView
-        android:id="@+id/text_welcome"
+        <TextView
+            android:id="@+id/text_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.currentFormattedDate}"
+            android:textColor="@color/oslo_gray"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="JULY 17 , 2020" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/text_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.welcomeMessage}"
+            android:textColor="@color/bunker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/text_today"
+            app:layout_constraintTop_toBottomOf="@+id/text_today"
+            tools:text="Welcome, Jordan!" />
 
-        android:text="@{viewModel.welcomeMessage}"
-        android:textColor="@color/bunker"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/text_today"
-        app:layout_constraintTop_toBottomOf="@+id/text_today"
-        tools:text="Welcome, Jordan!" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_rooms"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_welcome" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_rooms"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_welcome" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
