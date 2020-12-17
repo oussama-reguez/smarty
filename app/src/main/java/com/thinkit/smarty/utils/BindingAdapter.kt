@@ -10,13 +10,14 @@ import com.thinkit.smarty.R
  * added a new attribute "app:numberOfDevices" to textView to correctly format number of devices
  */
 @BindingAdapter("app:numberOfDevices")
-fun numberOfDevices(textView: TextView, deviceNumbers:Int) {
-    val textDeviceNumber= if(deviceNumbers==1)  textView.context.getString(R.string.device) else textView.context.getString(R.string.devices)
-    textView.text="$deviceNumbers $textDeviceNumber"
+fun numberOfDevices(textView: TextView, deviceNumbers: Int) {
+    val textDeviceNumber =
+        if (deviceNumbers == 1) textView.context.getString(R.string.device) else textView.context.getString(
+            R.string.devices
+        )
+    textView.text = "$deviceNumbers $textDeviceNumber"
 
 }
-
-
 
 
 /**
@@ -24,9 +25,9 @@ fun numberOfDevices(textView: TextView, deviceNumbers:Int) {
  */
 @BindingAdapter(value = ["imageName"], requireAll = false)
 fun ImageView.setImageFromDb(imageName: String?) {
- imageName?.let {
-     setImageResource(resources.getIdentifier(imageName, "drawable", context.packageName))
- }
+    imageName?.let {
+        setImageResource(resources.getIdentifier(imageName, "drawable", context.packageName))
+    }
 }
 
 

@@ -2,7 +2,6 @@ package com.thinkit.smarty.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.thinkit.smarty.databinding.ItemRoomBinding
 import com.thinkit.smarty.entities.RoomWithDevices

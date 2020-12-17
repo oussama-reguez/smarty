@@ -9,11 +9,11 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 
-class SmartyApplication : Application(), KodeinAware  {
+class SmartyApplication : Application(), KodeinAware {
     /**
      * kodein instance for binding dependencies and declared modules
      */
-    override val kodein: Kodein = Kodein.lazy{
+    override val kodein: Kodein = Kodein.lazy {
         import(androidXModule(this@SmartyApplication))
         bind() from singleton { SharedPreferencesProvider(instance()) }
         bind() from singleton { ResourcesProvider(instance()) }
@@ -21,7 +21,6 @@ class SmartyApplication : Application(), KodeinAware  {
         import(repositoriesModule)
         import(roomModule)
     }
-
 
 
 }

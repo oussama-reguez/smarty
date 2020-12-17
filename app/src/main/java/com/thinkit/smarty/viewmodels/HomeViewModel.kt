@@ -13,20 +13,22 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeViewModel(private val roomRepository: RoomRepository,
-                    private val userRepository: UserRepository, private val resourcesProvider: ResourcesProvider) : ViewModel(){
+class HomeViewModel(
+    private val roomRepository: RoomRepository,
+    private val userRepository: UserRepository, private val resourcesProvider: ResourcesProvider
+) : ViewModel() {
 
 
     val welcomeMessage = ObservableField<String>()
-    var currentFormattedDate:String
+    var currentFormattedDate: String
     val rooms = liveData(Dispatchers.IO) {
-      emit(roomRepository.getAllRooms())
+        emit(roomRepository.getAllRooms())
     }
 
     init {
         viewModelScope.launch {
             val name = userRepository.getActiveUser().name
-            welcomeMessage.set( "${resourcesProvider.getString(R.string.welcome)}, $name!")
+            welcomeMessage.set("${resourcesProvider.getString(R.string.welcome)}, $name!")
         }
 
         currentFormattedDate = SimpleDateFormat(DATE_PATTERN).format(Date()).toUpperCase()
@@ -35,5 +37,5 @@ class HomeViewModel(private val roomRepository: RoomRepository,
 
 }
 
-//tools:text="JULY 17 , 2020"
+
 const val DATE_PATTERN = "MMMM dd, yyyy"

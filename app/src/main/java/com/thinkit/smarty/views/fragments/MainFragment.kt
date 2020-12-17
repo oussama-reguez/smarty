@@ -1,12 +1,12 @@
 package com.thinkit.smarty.views.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.thinkit.smarty.R
@@ -18,7 +18,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 
 
-class MainFragment : Fragment() , KodeinAware {
+class MainFragment : Fragment(), KodeinAware {
 
     /**
      * kodein instance used for dependency injection
@@ -45,7 +45,7 @@ class MainFragment : Fragment() , KodeinAware {
         dataBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
 
-        dataBinding.viewModel=viewModel
+        dataBinding.viewModel = viewModel
 
         return dataBinding.root
 
@@ -53,14 +53,14 @@ class MainFragment : Fragment() , KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loginState.observe(viewLifecycleOwner, Observer {  viewModelState->
+        viewModel.loginState.observe(viewLifecycleOwner, Observer { viewModelState ->
             onLoginStateChange(viewModelState)
 
         })
 
     }
 
-    private fun onLoginStateChange(state: ViewModelState){
+    private fun onLoginStateChange(state: ViewModelState) {
 
         when (state) {
             ViewModelState.SUCCESS -> {

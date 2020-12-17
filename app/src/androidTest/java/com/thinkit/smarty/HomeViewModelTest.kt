@@ -28,18 +28,16 @@ import org.kodein.di.generic.singleton
 @RunWith(AndroidJUnit4::class)
 class HomeViewModelTest {
     private val instrumentationContext = InstrumentationRegistry.getInstrumentation().targetContext
+
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-    lateinit var  viewModel: HomeViewModel
+    lateinit var viewModel: HomeViewModel
     lateinit var kodein: Kodein
-    lateinit var sharedPreferencesProvider:SharedPreferencesProvider
-
-
-
+    lateinit var sharedPreferencesProvider: SharedPreferencesProvider
 
 
     @Before
-    fun setup(){
+    fun setup() {
 
         kodein = Kodein.lazy {
             bind() from singleton { instrumentationContext }
@@ -55,7 +53,11 @@ class HomeViewModelTest {
         val resourcesProvider: ResourcesProvider by kodein.instance()
         val sharedPreferencesProvider: SharedPreferencesProvider by kodein.instance()
         this.sharedPreferencesProvider = sharedPreferencesProvider
-        viewModel = HomeViewModel(roomRepository = roomRepository, userRepository = userRepository, resourcesProvider = resourcesProvider)
+        viewModel = HomeViewModel(
+            roomRepository = roomRepository,
+            userRepository = userRepository,
+            resourcesProvider = resourcesProvider
+        )
 
 
     }
@@ -63,13 +65,12 @@ class HomeViewModelTest {
 
     @Test
     fun areRoomsPopulatedTest() =
-            runBlocking {
+        runBlocking {
 
-                val rooms = viewModel.rooms.asFlow().first()
-                assertNotEquals(0, rooms.size)
+            val rooms = viewModel.rooms.asFlow().first()
+            assertNotEquals(0, rooms.size)
 
-            }
-
+        }
 
 
 }

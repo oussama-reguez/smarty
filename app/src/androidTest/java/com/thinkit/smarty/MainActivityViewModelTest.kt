@@ -27,14 +27,12 @@ import org.kodein.di.generic.singleton
 @RunWith(AndroidJUnit4::class)
 class MainActivityViewModelTest {
     private val instrumentationContext = InstrumentationRegistry.getInstrumentation().targetContext
+
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-    lateinit var  activityViewModel: MainActivityViewModel
+    lateinit var activityViewModel: MainActivityViewModel
     lateinit var kodein: Kodein
-    lateinit var sharedPreferencesProvider:SharedPreferencesProvider
-
-
-
+    lateinit var sharedPreferencesProvider: SharedPreferencesProvider
 
 
     @Before
@@ -49,7 +47,8 @@ class MainActivityViewModelTest {
 
         val sharedPreferencesProvider: SharedPreferencesProvider by kodein.instance()
         this.sharedPreferencesProvider = sharedPreferencesProvider
-        activityViewModel = MainActivityViewModel(sharedPreferencesProvider = sharedPreferencesProvider)
+        activityViewModel =
+            MainActivityViewModel(sharedPreferencesProvider = sharedPreferencesProvider)
 
 
     }

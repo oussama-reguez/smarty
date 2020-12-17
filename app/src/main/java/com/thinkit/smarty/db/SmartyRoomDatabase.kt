@@ -2,7 +2,6 @@ package com.thinkit.smarty.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.thinkit.smarty.db.dao.RoomDao
 import com.thinkit.smarty.db.dao.UserDao
 import com.thinkit.smarty.entities.Device

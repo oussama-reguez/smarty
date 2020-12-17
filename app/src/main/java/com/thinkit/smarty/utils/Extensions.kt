@@ -24,7 +24,7 @@ inline fun <reified VM : ViewModel, T> T.viewModel(): Lazy<VM> where T : KodeinA
  * extension function to get view model within a fragment
  */
 inline fun <reified VM : ViewModel, T> T.viewModel(): Lazy<VM> where T : KodeinAware, T : Fragment {
-    return lazy { ViewModelProvider(this, direct.instance()).get(VM::class.java)}
+    return lazy { ViewModelProvider(this, direct.instance()).get(VM::class.java) }
 }
 
 /**

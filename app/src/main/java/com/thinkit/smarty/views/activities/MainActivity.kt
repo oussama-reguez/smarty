@@ -13,7 +13,7 @@ import com.thinkit.smarty.views.fragments.MainFragment
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 
-class MainActivity : AppCompatActivity() , KodeinAware {
+class MainActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
     private val mainViewModel: MainActivityViewModel by viewModel()

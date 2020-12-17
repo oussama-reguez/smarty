@@ -17,7 +17,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 
 
-class HomeFragment : Fragment() , KodeinAware {
+class HomeFragment : Fragment(), KodeinAware {
 
     /**
      * kodein instance used for dependency injection
@@ -34,7 +34,7 @@ class HomeFragment : Fragment() , KodeinAware {
      * generated data binding for view fragment_home.xml
      */
     private lateinit var dataBinding: FragmentHomeBinding
-    lateinit var roomsListAdapter:RoomsListAdapter
+    lateinit var roomsListAdapter: RoomsListAdapter
 
 
     override fun onCreateView(
@@ -44,7 +44,7 @@ class HomeFragment : Fragment() , KodeinAware {
         // Inflate the layout for this fragment
         dataBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        dataBinding.viewModel=viewModel
+        dataBinding.viewModel = viewModel
         return dataBinding.root
 
     }
@@ -53,18 +53,18 @@ class HomeFragment : Fragment() , KodeinAware {
         super.onViewCreated(view, savedInstanceState)
         setupRoomsListRecyclerView()
 
-        viewModel.rooms.observe(viewLifecycleOwner,  { roomsWithDevices ->
+        viewModel.rooms.observe(viewLifecycleOwner, { roomsWithDevices ->
             roomsListAdapter.apply {
                 this.roomsWithDevices = roomsWithDevices
                 notifyDataSetChanged()
             }
 
-         })
+        })
 
     }
 
     /**
-     * setting recylerView with ConsultationListAdapter
+     * setting recylerView with RoomsListAdapter
      */
     private fun setupRoomsListRecyclerView() {
         roomsListAdapter = RoomsListAdapter(roomsWithDevices = emptyList())

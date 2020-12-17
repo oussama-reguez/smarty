@@ -30,14 +30,14 @@ val viewModelModule = Kodein.Module(name = "viewModelModule") {
      * Starts the binding of a HomeViewModel
      */
     bindViewModel<HomeViewModel>() with provider {
-        HomeViewModel(instance(),instance(),instance())
+        HomeViewModel(instance(), instance(), instance())
     }
 
     /**
      * Starts the binding of a MainViewModel
      */
     bindViewModel<MainViewModel>() with provider {
-        MainViewModel(instance(),instance(),instance())
+        MainViewModel(instance(), instance(), instance())
     }
 
 
